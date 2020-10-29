@@ -1,15 +1,9 @@
 import React from 'react';
-import { Account } from './component/Accounts';
-import Signup from './component/Signup';
-import Login from './component/Login';
-import Status from './component/Status';
+
+import Exec from './component/Exec'
 
 export default () => {
   return (
-    <Account>
-      <Status />
-      <Signup />
-      <Login />
-    </Account>
+    <Exec></Exec>
   );
 };

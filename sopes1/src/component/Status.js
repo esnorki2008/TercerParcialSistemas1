@@ -18,10 +18,10 @@ export default () => {
     <div>
       {status ? (
         <div>
-          You are logged in.
+          Loggeado
           <button onClick={logout}>Logout</button>
         </div>
-      ) : 'Please login below.'}
+      ) : 'Sin Loggearse'}
     </div>
   );
 };

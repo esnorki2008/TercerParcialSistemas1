@@ -61,5 +61,26 @@ const Account = props => {
     </AccountContext.Provider>
   );
 };
+const authenticate = async (Username, Password) =>
+    await new Promise((resolve, reject) => {
+      const user = new CognitoUser({ Username, Pool });
+      const authDetails = new AuthenticationDetails({ Username, Password });
 
-export { Account, AccountContext };
+      user.authenticateUser(authDetails, {
+        onSuccess: data => {
+          console.log('onSuccess:', data);
+          resolve(data);
+        },
+
+        onFailure: err => {
+          console.error('onFailure:', err);
+          reject(err);
+        },
+
+        newPasswordRequired: data => {
+          console.log('newPasswordRequired:', data);
+          resolve(data);
+        }
+      });
+    });
+export { Account, AccountContext,authenticate };
