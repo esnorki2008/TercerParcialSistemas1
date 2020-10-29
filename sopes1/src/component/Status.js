@@ -1,27 +1,42 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { AccountContext } from './Accounts';
+import React from 'react';
+import { logout,getSession } from './Accounts';
 
-export default () => {
-  const [status, setStatus] = useState(false);
+class Status extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {status : false }
 
-  const { getSession, logout } = useContext(AccountContext);
+    
+    //console.log(getSession)
 
-  useEffect(() => {
+    //cors@gotmail.com
     getSession()
       .then(session => {
         console.log('Session:', session);
-        setStatus(true);
+        this.setState({status:true});
+    }).catch(session=>{
+        console.log('Error en Status Catch: ',session)
+    })
+  }
+  useEffect()  {
+    getSession()
+      .then(session => {
+        console.log('Session:', session);
+        this.setState({status:true});
       })
-  }, []);
+  };
+  render() {
+    return (
+      <div>
+        {this.state.status ? (
+          <div>
+            Loggeado
+            <button onClick={logout}>Logout</button>
+          </div>
+        ) : 'Sin Loggearse'}
+      </div>
+    );
+  }
+}
+export default Status;
 
-  return (
-    <div>
-      {status ? (
-        <div>
-          Loggeado
-          <button onClick={logout}>Logout</button>
-        </div>
-      ) : 'Sin Loggearse'}
-    </div>
-  );
-};

@@ -36,9 +36,9 @@ class Aplicacion extends React.Component {
                             <Card >
                                 <Card.Img variant="top" src={foto} />
                                 <Card.Body>
-                                    <Card.Title><b>USR</b></Card.Title>
+                                    <Card.Title><b>Usuario Loggeado</b></Card.Title>
                                     <Card.Text>
-                                        Bienvenido Usuario <b>USR</b> Desde Este Panel Puede Tener
+                                        Bienvenido Usuario Desde Este Panel Puede Tener
                                     Acceso A Las Funcionalidades De La Aplicacion
                                 </Card.Text>
                                 </Card.Body>
@@ -52,7 +52,7 @@ class Aplicacion extends React.Component {
                                 <Bar
                                     data={data}
                                     width={100}
-                                    height={290}
+                                    
                                     options={{
                                         maintainAspectRatio: false
                                     }}
@@ -68,7 +68,8 @@ class Aplicacion extends React.Component {
     render() {
         return (
             <div >
-                {
+                {   
+                    
                     this.Contenido()
                 }
             </div>
